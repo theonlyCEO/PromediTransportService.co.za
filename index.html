@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMEDI TRANSPORT SERVICES | Premium Logistics Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #0a2540;
+            --secondary-color: #1a6bb3;
+            --accent-color: #ff9e00;
+            --dark-color: #1a1a2e;
+            --light-color: #f8fafc;
+            --gray-color: #6c757d;
+            --light-gray: #eef2f6;
+            --medium-gray: #a0aec0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --box-shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --gradient-primary: linear-gradient(135deg, #0a2540 0%, #1a6bb3 100%);
+            --gradient-accent: linear-gradient(135deg, #ff9e00 0%, #ffc107 100%);
+            --gradient-light: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--gradient-accent);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(255, 158, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 158, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 5px 20px rgba(10, 37, 64, 0.2);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 12px 25px rgba(10, 37, 64, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--gradient-accent);
+            border-radius: 3px;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 30px auto 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .section-subtitle {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 15px 0;
+        }
+
+        .header-scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: var(--gradient-primary);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 8px 20px rgba(10, 37, 64, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .logo-text h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 3px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section - Home Page */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.9)), url('https://images.unsplash.com/photo-1562887189-e5d078343de4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Page Layout */
+        .services-hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .services-hero p {
+            font-size: 1.3rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .service-detail-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--box-shadow-heavy);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-detail-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-detail-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-detail-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .service-detail-content h3 i {
+            color: var(--secondary-color);
+            background: var(--light-gray);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .service-detail-content p {
+            color: var(--gray-color);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .service-cta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        /* About Page Layout */
+        .about-hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-heavy);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0 auto 25px;
+        }
+
+        .value-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-heavy);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 37, 64, 0.2), transparent);
+            pointer-events: none;
+        }
+
+        /* Registration Page Layout */
+        .registration-hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .registration-hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .registration-hero p {
+            font-size: 1.3rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .registration-details {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .registration-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .registration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-heavy);
+        }
+
+        .registration-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .info-item {
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .info-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .info-item span {
+            color: var(--dark-color);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .director-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .director-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-heavy);
+        }
+
+        .director-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .director-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--secondary-color);
+            border: 5px solid var(--accent-color);
+        }
+
+        /* Contact Page Layout */
+        .contact-hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(26, 107, 179, 0.1);
+        }
+
+        .contact-info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-heavy);
+        }
+
+        .contact-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-card h4 i {
+            color: var(--secondary-color);
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-details li i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .services-detail-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+            
+            .about-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .registration-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .services-hero h1,
+            .about-hero h1,
+            .registration-hero h1,
+            .contact-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                padding-top: 120px;
+                z-index: 1000;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 0 40px;
+            }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid var(--light-gray);
+            }
+
+            nav a {
+                display: flex;
+                padding: 20px 0;
+                font-size: 1.2rem;
+            }
+
+            nav a.active::after {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 150px;
+                padding-bottom: 80px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .services-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .registration-card,
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .services-hero h1,
+            .about-hero h1,
+            .registration-hero h1,
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo" data-page="home">
+                <div class="logo-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div id ="home"class="logo-text">
+                    <h1>PROMEDI TRANSPORT</h1>
+                    <p>LOGISTICS SOLUTIONS</p>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#services" class="nav-link" ><i class="fas fa-truck-loading"></i> Services</a></li>
+                    <li><a href="#about" class="nav-link" ><i class="fas fa-building"></i> About</a></li>
+                    <li><a href="#registration" class="nav-link" ><i class="fas fa-file-certificate"></i> Registration</a></li>
+                    <li><a href="#contact" class="nav-link" ><i class="fas fa-phone-alt"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <main id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="section-subtitle">PREMIUM TRANSPORT SOLUTIONS</span>
+                    <h1>Your Trusted Partner for <span>Reliable Logistics</span></h1>
+                    <p>Promedi TRANSPORT SERVICES provides comprehensive, safe, and efficient transport solutions across South Africa. With our modern fleet and experienced team, we ensure your goods are delivered on time, every time.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="#" class="btn" data-page="services">
+                            <i class="fas fa-truck"></i> Our Services
+                        </a>
+                        <a href="#" class="btn btn-secondary" data-page="contact">
+                            <i class="fas fa-phone-alt"></i> Get a Quote
+                        </a>
+                        <!-- <a href="#" class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> Watch Video
+                        </a> -->
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">On-Time Delivery</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="#services" class="section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-subtitle">OUR SPECIALTIES</span>
+                    <h2>Comprehensive Transport Solutions</h2>
+                    <p>We offer a wide range of logistics services designed to meet the diverse needs of businesses across industries.</p>
+                </div>
+                
+                <div class="services-detail-grid">
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIdvdhweu3bWWmRHcQXGGTUuCihoX9tVZUTQ&s" alt="Freight Transport">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-truck-loading"></i> Freight Transport</h3>
+                            <p>Our freight transport services ensure safe and timely delivery of goods across local and regional routes with advanced tracking systems.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> General cargo transportation</li>
+                                <li><i class="fas fa-check"></i> Palletized goods handling</li>
+                                <li><i class="fas fa-check"></i> Container haulage services</li>
+                                <li><i class="fas fa-check"></i> Express delivery options</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="services">Learn More</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMJ9yYYxyBVWrD39TGbtorVnSVWqMvaC8xGA&s" alt="Warehousing">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-warehouse"></i> Warehousing</h3>
+                            <p>Secure storage solutions with state-of-the-art inventory management systems and efficient distribution networks.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Climate-controlled storage</li>
+                                <li><i class="fas fa-check"></i> Real-time inventory tracking</li>
+                                <li><i class="fas fa-check"></i> Order fulfillment services</li>
+                                <li><i class="fas fa-check"></i> Cross-docking facilities</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="services">Learn More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="#" class="btn" data-page="services">
+                        <i class="fas fa-eye"></i> View All Services
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Services Page -->
+    <main id="services" class="page">
+        <section class="services-hero">
+            <div class="container">
+                <span class="section-subtitle">OUR EXPERTISE</span>
+                <h1>Comprehensive Transport Services</h1>
+                <p>Discover our wide range of professional logistics solutions designed to meet your business transportation needs.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="services-detail-grid">
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIdvdhweu3bWWmRHcQXGGTUuCihoX9tVZUTQ&s" alt="General Freight">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-truck-moving"></i> General Freight Transport</h3>
+                            <p>Our general freight services cover transportation of various goods including manufactured products, raw materials, and commercial goods across South Africa.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Local and regional deliveries</li>
+                                <li><i class="fas fa-check"></i> Full truckload (FTL) services</li>
+                                <li><i class="fas fa-check"></i> Less than truckload (LTL) services</li>
+                                <li><i class="fas fa-check"></i> Real-time GPS tracking</li>
+                                <li><i class="fas fa-check"></i> Same-day delivery options</li>
+                                <li><i class="fas fa-check"></i> Proof of delivery documentation</li>
+                            </ul>
+                            <div class="service-cta">
+                                <!-- <span>From R2,500 per load</span> -->
+                                <span class="btn btn-secondary" data-page="contact">Get Quote</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMJ9yYYxyBVWrD39TGbtorVnSVWqMvaC8xGA&s" alt="Warehousing">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-warehouse"></i> Warehousing & Distribution</h3>
+                            <p>Modern warehousing facilities with advanced inventory management systems for secure storage and efficient distribution.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 10,000+ sq ft storage space</li>
+                                <li><i class="fas fa-check"></i> Climate-controlled areas</li>
+                                <li><i class="fas fa-check"></i> 24/7 security monitoring</li>
+                                <li><i class="fas fa-check"></i> Inventory management software</li>
+                                <li><i class="fas fa-check"></i> Order picking and packing</li>
+                                <li><i class="fas fa-check"></i> Cross-docking services</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span>From R150/m² monthly</span>
+                                <span class="btn btn-secondary" data-page="contact">Get Quote</span>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL2WKa02OHypd3IyqrTy_AG-5Lo5_8FXQO-g&s" alt="Refrigerated Transport">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-temperature-low"></i> Refrigerated Transport</h3>
+                            <p>Temperature-controlled transportation for perishable goods including food, pharmaceuticals, and other sensitive products.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Multi-temperature vehicles</li>
+                                <li><i class="fas fa-check"></i> Continuous temperature monitoring</li>
+                                <li><i class="fas fa-check"></i> HACCP compliance</li>
+                                <li><i class="fas fa-check"></i> Pharmaceutical grade transport</li>
+                                <li><i class="fas fa-check"></i> Quick turnaround times</li>
+                                <li><i class="fas fa-check"></i> Sanitation protocols</li>
+                            </ul>
+                            <div class="service-cta">
+                                <!-- <span>From R3,500 per load</span> -->
+                                <span class="btn btn-secondary" data-page="contact">Get Quote</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxMC6tVzD5J3VBu5qdyoVJGPVzuv0E68XfOw&s" alt="Specialized Transport">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-shield-alt"></i> Specialized & Secure Transport</h3>
+                            <p>Handling of high-value, fragile, oversized, or hazardous materials with enhanced security and specialized equipment.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> High-value goods transport</li>
+                                <li><i class="fas fa-check"></i> Oversized load handling</li>
+                                <li><i class="fas fa-check"></i> Hazardous materials (HAZMAT)</li>
+                                <li><i class="fas fa-check"></i> Armed security escort options</li>
+                                <li><i class="fas fa-check"></i> Custom crating and packing</li>
+                                <li><i class="fas fa-check"></i> Insurance coverage</li>
+                            </ul>
+                            <div class="service-cta">
+                                <!-- <span>Custom pricing</span> -->
+                                <span class="btn btn-secondary" data-page="contact">Get Quote</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Page -->
+    <main id="about" class="page">
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <span class="section-subtitle">OUR STORY</span>
+                    <h1>About PROMEDI TRANSPORT</h1>
+                    <p>Learn about our journey, values, and commitment to providing exceptional logistics solutions across South Africa.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="about-content-grid">
+                    <div class="about-text">
+                        <h3>Our Commitment to Excellence</h3>
+                        <p>Founded in 2025, PROMEDI TRANSPORT SERVICES has rapidly established itself as a trusted provider of comprehensive logistics solutions in South Africa. Our journey began with a single truck and a vision to transform the transportation industry through reliability, innovation, and exceptional service.</p>
+                        <p>Today, we operate a modern fleet of vehicles and employ a team of highly skilled professionals dedicated to ensuring your goods reach their destination safely and on time. Our strategic location in Johannesburg allows us to serve clients across Gauteng and beyond efficiently.</p>
+                        <p>We pride ourselves on our compliance with all regulatory requirements, holding official registration with the Companies and Intellectual Property Commission (CIPC), which underscores our commitment to operating with integrity and transparency.</p>
+                        
+                        <div class="about-values">
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Reliability</h4>
+                                <p>Consistent on-time delivery with 98% success rate</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Safety</h4>
+                                <p>Zero major incidents in 12+ years of operation</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h4>Support</h4>
+                                <p>24/7 customer support and tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="https://imagine-public.x.ai/imagine-public/images/5a00d488-1711-4614-9149-6953437d650c.jpg" alt="Our Transport Facility">
+                    </div>
+                </div>
+                
+                <div class="registration-card" style="margin-top: 50px;">
+                    <h2>Company Leadership</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Managing Director</strong>
+                            <span>LUMINA FELVYNGOI</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Years of Experience</strong>
+                            <span>15+ Years in Logistics</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Qualifications</strong>
+                            <span>MBA, Transport Management</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Contact</strong>
+                            <span>PromediTransportService@gmail.com/span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Page -->
+    <main id="registration" class="page">
+        <section class="registration-hero">
+            <div class="container">
+                <span class="section-subtitle">OFFICIAL DOCUMENTATION</span>
+                <h1>Company Registration Details</h1>
+                <p>Official registration information with the Companies and Intellectual Property Commission of South Africa.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="registration-details">
+                    <div class="registration-card">
+                        <h2>Registration Certificate Details</h2>
+                        <p style="margin-bottom: 30px; color: var(--gray-color);">Certificate issued by the Commissioner of Companies & Intellectual Property Commission on Friday, November 21, 2025 at 10:42</p>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Registration Number</strong>
+                                <span>2828 / 997771 / 57</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Enterprise Name</strong>
+                                <span>PROMEDI TRANSPORT SERVICES</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Registration Date</strong>
+                                <span>21 November 2025</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Business Start Date</strong>
+                                <span>21 November 2025</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Enterprise Type</strong>
+                                <span>Private Company (Pty) Ltd</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Enterprise Status</strong>
+                                <span>In Business (Active)</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Financial Year End</strong>
+                                <span>Last Day of February</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Tax Number</strong>
+                                <span>9909052574</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>CIPC Status</strong>
+                                <span>Fully Compliant</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>B-BBEE Status</strong>
+                                <span>Level 2 Contributor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="director-card" style="margin-bottom: 30px;">
+                            <div class="director-photo">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>LUMINA FELVYNGOI</h3>
+                            <p><strong>Director</strong></p>
+                            <p>Appointed: April 2025</p>
+                            <p>ID Number: Available on Request</p>
+                        </div>
+                        
+                        <div class="registration-card">
+                            <h3>Registered Addresses</h3>
+                            <div class="info-item">
+                                <strong>Postal Address</strong>
+                                <span>90 ALBERT STREET, ROSETTEVILLE, JOHANNESBURG, GAUTENG 2190</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Registered Office</strong>
+                                <span>90 ALBERT STREET, ROSETTEVILLE, JOHANNESBURG, GAUTENG 2190</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Physical Address</strong>
+                                <span>80 all Crayons - Block F, 77 Marcyton Street, Surveyside 0001</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Page -->
+    <main id="contact" class="page">
+        <section class="contact-hero">
+            <div class="container">
+                <span class="section-subtitle">GET IN TOUCH</span>
+                <h1>Contact Our Team</h1>
+                <p>Reach out to us for quotes, support, or any inquiries about our transport and logistics services.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" class="form-control">
+                                    <option value="">Select a service</option>
+                                    <option value="freight">Freight Transport</option>
+                                    <option value="warehousing">Warehousing</option>
+                                    <option value="refrigerated">Refrigerated Transport</option>
+                                    <option value="specialized">Specialized Transport</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" class="form-control" rows="6" placeholder="Describe your transport needs or inquiry" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-sidebar">
+                        <div class="contact-card">
+                            <h4><i class="fas fa-map-marker-alt"></i> Our Locations</h4>
+                            <ul class="contact-details">
+                                <li>
+                                    <i class="fas fa-building"></i>
+                                    <div>
+                                        <strong>Head Office</strong>
+                                        <p>90 Albert Street, Rosetteville<br>Johannesburg, Gauteng 2190</p>
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <i class="fas fa-warehouse"></i>
+                                    <div>
+                                        <strong>Operations Center</strong>
+                                        <p>80 all Crayons - Block F<br>77 Marcyton Street, Surveyside 0001</p>
+                                    </div>
+                                </li> -->
+                                <!-- <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Postal Address</strong>
+                                        <p>P.O Box 420, Pracula 0001</p>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h4><i class="fas fa-phone-alt"></i> Contact Details</h4>
+                            <ul class="contact-details">
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>General Inquiries</strong>
+                                        <p>+27 11 234 5678</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-truck"></i>
+                                    <div>
+                                        <strong>Operations Desk</strong>
+                                        <p>+27 11 234 5679</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-headset"></i>
+                                    <div>
+                                        <strong>Customer Support</strong>
+                                        <p>PromeiTransportService@gmail.com</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-file-invoice"></i>
+                                    <div>
+                                        <strong>Quotes & Sales</strong>
+                                        <p>PromediTransportService@gmail.com</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h4><i class="fas fa-clock"></i> Business Hours</h4>
+                            <ul class="contact-details">
+                                <li>
+                                    <i class="fas fa-calendar-day"></i>
+                                    <div>
+                                        <strong>Weekdays</strong>
+                                        <p>Monday - Friday: 7:00 AM - 7:00 PM</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-calendar-week"></i>
+                                    <div>
+                                        <strong>Saturdays</strong>
+                                        <p>8:00 AM - 2:00 PM</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div>
+                                        <strong>Emergency Support</strong>
+                                        <p>24/7 for scheduled deliveries</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PROMEDI TRANSPORT</h3>
+                    <p>Your trusted partner for reliable logistics and transport solutions across South Africa. Fully registered and compliant with all regulatory requirements.</p>
+                    <p><i class="fas fa-certificate"></i> CIPC Registration: 2828 / 997771 / 57</p>
+                    <p><i class="fas fa-calendar-alt"></i> Registered: 21 November 2025</p>
+                
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#" class="footer-nav" data-page="home">Home</a>
+                    <a href="#" class="footer-nav" data-page="services">Our Services</a>
+                    <a href="#" class="footer-nav" data-page="about">About Us</a>
+                    <a href="#" class="footer-nav" data-page="registration">Registration</a>
+                    <a href="#" class="footer-nav" data-page="contact">Contact Us</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="#" class="footer-nav" data-page="services">Freight Transport</a>
+                    <a href="#" class="footer-nav" data-page="services">Warehousing</a>
+                    <a href="#" class="footer-nav" data-page="services">Refrigerated Transport</a>
+                    <a href="#" class="footer-nav" data-page="services">Specialized Transport</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 90 Albert Street, Rosetteville</p>
+                    <p><i class="fas fa-phone"></i> +27 11 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> PromediTransportService@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 7AM-7PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 PROMEDI TRANSPORT SERVICES. All rights reserved. Registered with the Companies and Intellectual Property Commission of South Africa (CIPC).</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const mainHeader = document.getElementById('mainHeader');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                mainHeader.classList.add('header-scrolled');
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-link, .footer-nav, .btn[data-page], .logo');
+        const pages = document.querySelectorAll('.page');
+        
+        function switchPage(pageId) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            
+            // Add active class to the clicked nav link
+            document.querySelectorAll(`[data-page="${pageId}"]`).forEach(el => {
+                if (el.classList.contains('nav-link')) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // Close mobile menu if open
+            if (mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            // Scroll to top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.hasAttribute('data-page')) {
+                    e.preventDefault();
+                    const targetPage = link.getAttribute('data-page');
+                    switchPage(targetPage);
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                
+                // Show success message
+                alert(`Thank you ${name}! Your inquiry has been received. We will contact you at ${email} regarding ${service || 'your transport needs'} shortly.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+        
+        // Animate stats on home page
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const originalText = stat.textContent;
+                const target = parseInt(originalText.replace(/\D/g, ''));
+                const hasPlus = originalText.includes('+');
+                const isPercent = originalText.includes('%');
+                
+                let current = 0;
+                const increment = target / 30;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (hasPlus ? '+' : '') + (isPercent ? '%' : '');
+                        clearInterval(timer);
+                    } else {
+                        const displayValue = Math.floor(current);
+                        stat.textContent = displayValue + (hasPlus ? '+' : '') + (isPercent ? '%' : '');
+                    }
+                }, 50);
+            });
+        }
+        
+        // Initialize stats animation when home page becomes visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'home') {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(document.getElementById('home'));
+        
+        // Simulate loading effect
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // Initialize with home page active
+        window.addEventListener('DOMContentLoaded', () => {
+            switchPage('home');
+        });
+    </script>
+</body>
+</html>
