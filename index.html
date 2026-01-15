@@ -35,19 +35,23 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+           
         }
 
         html {
+             
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--dark-color);
-            background-color: var(--light-color);
-            overflow-x: hidden;
-        }
+      body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+    display: block; /* Instead of flex */
+    max-width: 100%;
+}
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
@@ -943,182 +947,289 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .services-detail-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-            
-            .about-content-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-            
-            .registration-details {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+       /* Responsive Styles - Fixed */
+@media (max-width: 1200px) {
+    .services-detail-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .registration-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .services-hero h1,
-            .about-hero h1,
-            .registration-hero h1,
-            .contact-hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-stats {
-                gap: 30px;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-        }
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2.5rem;
+    }
+    
+    .services-hero h1,
+    .about-hero h1,
+    .registration-hero h1,
+    .contact-hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-stats {
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
 
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 10px 0;
-            }
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 0;
+    }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+    .mobile-menu-btn {
+        display: block;
+    }
 
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
-                transition: var(--transition);
-                padding-top: 120px;
-                z-index: 1000;
-            }
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        padding-top: 120px;
+        z-index: 1000;
+    }
 
-            nav.active {
-                right: 0;
-            }
+    nav.active {
+        right: 0;
+    }
 
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 0 40px;
-            }
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0 40px;
+    }
 
-            nav li {
-                width: 100%;
-                border-bottom: 1px solid var(--light-gray);
-            }
+    nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--light-gray);
+    }
 
-            nav a {
-                display: flex;
-                padding: 20px 0;
-                font-size: 1.2rem;
-            }
+    nav a {
+        display: flex;
+        padding: 20px 0;
+        font-size: 1.2rem;
+    }
 
-            nav a.active::after {
-                display: none;
-            }
+    nav a.active::after {
+        display: none;
+    }
 
-            .hero {
-                padding-top: 150px;
-                padding-bottom: 80px;
-                text-align: center;
-            }
+    .hero {
+        padding-top: 150px;
+        padding-bottom: 80px;
+        text-align: center;
+    }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
+    .hero p {
+        font-size: 1.1rem;
+    }
 
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .section-padding {
-                padding: 80px 0;
-            }
+    .section-padding {
+        padding: 80px 0;
+    }
 
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
 
-            .services-detail-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .registration-card,
-            .contact-form {
-                padding: 30px;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .services-detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .registration-card,
+    .contact-form {
+        padding: 30px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 30px;
-                align-items: center;
-            }
-            
-            .stat-item {
-                min-width: 120px;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .logo-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
-            }
-            
-            .services-hero h1,
-            .about-hero h1,
-            .registration-hero h1,
-            .contact-hero h1 {
-                font-size: 2.2rem;
-            }
-        }
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px !important; /* Changed from 15px to 10px */
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .stat-item {
+        min-width: 120px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .logo-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .services-hero h1,
+    .about-hero h1,
+    .registration-hero h1,
+    .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Specifically target the smallest screens */
+    .hero,
+    .services-hero,
+    .about-hero,
+    .registration-hero,
+    .contact-hero,
+    .section-padding {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 0 8px !important; /* Even smaller padding */
+    }
+    
+    .hero h1 {
+        font-size: 2rem; /* Slightly smaller */
+    }
+    
+    .hero-stats {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        min-width: 100px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .services-hero h1,
+    .about-hero h1,
+    .registration-hero h1,
+    .contact-hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Critical fix for screens 380px and below */
+@media (max-width: 380px) {
+    * {
+        box-sizing: border-box;
+        max-width: 100vw;
+    }
+    
+    html, body {
+        width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    .container {
+        padding: 0 5px !important;
+        width: 100vw !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove any potential horizontal overflow */
+    .hero-content,
+    .service-detail-card,
+    .registration-card,
+    .contact-form,
+    .contact-card,
+    .value-card,
+    .director-card {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    /* Ensure buttons don't overflow */
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+    }
+    
+    .hero-btns {
+        width: 100%;
+    }
+}
+      
+
+    
+      
+
+    
     </style>
 </head>
 <body>
@@ -1249,13 +1360,13 @@
         </section>
     </main>
 
-    <!-- Services Page -->
+       <!-- Services Page -->
     <main id="services" class="page">
         <section class="services-hero">
             <div class="container">
                 <span class="section-subtitle">OUR EXPERTISE</span>
-                <h1>Comprehensive Transport Services</h1>
-                <p>Discover our wide range of professional logistics solutions designed to meet your business transportation needs.</p>
+                <h1>Comprehensive Transport & Logistics Services</h1>
+                <p>Discover our wide range of professional logistics solutions including specialized cross-border transportation across Southern Africa.</p>
             </div>
         </section>
 
@@ -1278,13 +1389,12 @@
                                 <li><i class="fas fa-check"></i> Proof of delivery documentation</li>
                             </ul>
                             <div class="service-cta">
-                                <!-- <span>From R2,500 per load</span> -->
                                 <span class="btn btn-secondary" data-page="contact">Get Quote</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- <div class="service-detail-card">
+                    <div class="service-detail-card">
                         <div class="service-image">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMJ9yYYxyBVWrD39TGbtorVnSVWqMvaC8xGA&s" alt="Warehousing">
                         </div>
@@ -1300,11 +1410,10 @@
                                 <li><i class="fas fa-check"></i> Cross-docking services</li>
                             </ul>
                             <div class="service-cta">
-                                <span>From R150/m² monthly</span>
                                 <span class="btn btn-secondary" data-page="contact">Get Quote</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     
                     <div class="service-detail-card">
                         <div class="service-image">
@@ -1322,7 +1431,6 @@
                                 <li><i class="fas fa-check"></i> Sanitation protocols</li>
                             </ul>
                             <div class="service-cta">
-                                <!-- <span>From R3,500 per load</span> -->
                                 <span class="btn btn-secondary" data-page="contact">Get Quote</span>
                             </div>
                         </div>
@@ -1344,11 +1452,160 @@
                                 <li><i class="fas fa-check"></i> Insurance coverage</li>
                             </ul>
                             <div class="service-cta">
-                                <!-- <span>Custom pricing</span> -->
                                 <span class="btn btn-secondary" data-page="contact">Get Quote</span>
                             </div>
                         </div>
                     </div>
+                </div>
+                
+                <!-- NEW CROSS-BORDER TRANSPORTATION SECTION -->
+                <div class="section-title" style="margin-top: 80px;">
+                    <span class="section-subtitle">INTERNATIONAL SPECIALIZATION</span>
+                    <h2>Cross-Border Transportation Services</h2>
+                    <p>We specialize in reliable cross-border logistics between South Africa and key destinations in the Democratic Republic of Congo.</p>
+                </div>
+                
+                <div class="services-detail-grid">
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://www.globalafricanetwork.com/wp-content/uploads/2024/06/Lima-Carriers-2.jpg" alt="Cross-Border Transport">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-globe-africa"></i> Cross-Border Transport Specialists</h3>
+                            <p>We provide comprehensive cross-border transportation services between South Africa and key destinations in the Democratic Republic of Congo, with expertise in customs clearance and border regulations.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-route"></i> <strong>Primary Routes:</strong> Johannesburg ↔ Lubumbashi</li>
+                                <li><i class="fas fa-route"></i> <strong>Secondary Routes:</strong> Johannesburg ↔ Kinshasa</li>
+                                <li><i class="fas fa-route"></i> <strong>Additional Routes:</strong> Johannesburg ↔ Kolwezi & Likasi</li>
+                                <li><i class="fas fa-passport"></i> Full customs clearance services</li>
+                                <li><i class="fas fa-file-contract"></i> Documentation and compliance</li>
+                                <li><i class="fas fa-shield-alt"></i> Cargo insurance available</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="contact">Request Cross-Border Quote</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://www.freightnews.co.za/files/styles/article_large/public/article/headline/2024-08/3congo.png?h=2a55d332&itok=zyCtmyDr" alt="DRC Transport">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-flag"></i> DRC Transport Expertise</h3>
+                            <p>With extensive experience in DRC logistics, we navigate the unique challenges of Congolese transportation infrastructure to ensure reliable delivery to major economic centers.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-city"></i> <strong>Lubumbashi:</strong>  capital transport solutions</li>
+                                <li><i class="fas fa-city"></i> <strong>Kinshasa:</strong> Capital city logistics network</li>
+                                <li><i class="fas fa-city"></i> <strong>Kolwezi:</strong>  region</li>
+                                <li><i class="fas fa-city"></i> <strong>Likasi:</strong> Industrial transport</li>
+                                <li><i class="fas fa-tachometer-alt"></i> Average transit time: 7-10 days</li>
+                                <li><i class="fas fa-headset"></i> 24/7 route monitoring</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="contact">DRC Transport Inquiry</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPmuIiyar1aeZjdW22Un_zlj5UNgcQl38Gkw&s" alt="Customs Clearance">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-file-export"></i> Customs & Documentation</h3>
+                            <p>Our expertise in cross-border documentation ensures smooth transit through South African, Zambian, and Congolese border posts with minimal delays.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-file-invoice"></i> Comprehensive documentation preparation</li>
+                                <li><i class="fas fa-balance-scale"></i> Compliance with SADC regulations</li>
+                                <li><i class="fas fa-map-marked-alt"></i> Knowledge of Beitbridge & Chirundu borders</li>
+                                <li><i class="fas fa-clock"></i> Expedited clearance services</li>
+                                <li><i class="fas fa-language"></i> Multilingual documentation support</li>
+                                <li><i class="fas fa-handshake"></i> Established relationships with customs officials</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="contact">Customs Assistance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="service-detail-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mining Logistics">
+                        </div>
+                        <div class="service-detail-content">
+                            <h3><i class="fas fa-hard-hat"></i> Mining & Industrial Logistics</h3>
+                            <p>Specialized transport solutions for the mining industry, including equipment, chemicals, and extracted minerals between South Africa and DRC mining regions.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-mountain"></i> Mining equipment transportation</li>
+                                <li><i class="fas fa-gem"></i> Mineral concentrate haulage</li>
+                                <li><i class="fas fa-flask"></i> Chemical and reagent transport</li>
+                                <li><i class="fas fa-tools"></i> Spare parts and machinery</li>
+                                <li><i class="fas fa-user-shield"></i> Security escorted convoys</li>
+                                <li><i class="fas fa-clipboard-check"></i> Industry-specific compliance</li>
+                            </ul>
+                            <div class="service-cta">
+                                <span class="btn btn-secondary" data-page="contact">Mining Logistics Quote</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- Route Information Table -->
+                <div class="registration-card" style="margin-top: 50px;">
+                    <h2><i class="fas fa-route"></i> Cross-Border Route Details</h2>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                            <thead>
+                                <tr style="background: var(--gradient-primary); color: white;">
+                                    <th style="padding: 15px; text-align: left;">Route</th>
+                                    <th style="padding: 15px; text-align: left;">Distance</th>
+                                    <th style="padding: 15px; text-align: left;">Transit Time</th>
+                                    <th style="padding: 15px; text-align: left;">Key Border Posts</th>
+                                    <!-- <th style="padding: 15px; text-align: left;">Special Considerations</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--light-gray);">
+                                    <td style="padding: 15px;"><strong>Johannesburg ↔ Lubumbashi</strong></td>
+                                    <td style="padding: 15px;">~1,800 km</td>
+                                    <td style="padding: 15px;">7-10 days</td>
+                                    <td style="padding: 15px;">Beitbridge (ZA-ZW), Chirundu (ZW-ZM), Kasumbalesa (ZM-CD)</td>
+                                    <!-- <td style="padding: 15px;">Mining equipment, copper/cobalt concentrate</td> -->
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--light-gray);">
+                                    <td style="padding: 15px;"><strong>Johannesburg ↔ Kinshasa</strong></td>
+                                    <td style="padding: 15px;">~2,500 km</td>
+                                    <td style="padding: 15px;">10-14 days</td>
+                                    <td style="padding: 15px;">Multiple border crossings through Zambia/Angola</td>
+                                    <!-- <td style="padding: 15px;">General cargo, consumer goods, machinery</td> -->
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--light-gray);">
+                                    <td style="padding: 15px;"><strong>Johannesburg ↔ Kolwezi</strong></td>
+                                    <td style="padding: 15px;">~1,700 km</td>
+                                    <td style="padding: 15px;">6-9 days</td>
+                                    <td style="padding: 15px;">Kasumbalesa border post</td>
+                                    <!-- <td style="padding: 15px;">Cobalt mining supplies, industrial equipment</td> -->
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px;"><strong>Johannesburg ↔ Likasi</strong></td>
+                                    <td style="padding: 15px;">~1,750 km</td>
+                                    <td style="padding: 15px;">7-10 days</td>
+                                    <td style="padding: 15px;">Kasumbalesa border post</td>
+                                    <!-- <td style="padding: 15px;">Industrial chemicals, mining reagents</td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--gray-color); font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Note: Transit times may vary based on customs clearance, road conditions, and seasonal factors. All routes include comprehensive cargo insurance.
+                    </p>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="#" class="btn" data-page="contact">
+                        <i class="fas fa-phone-alt"></i> Get Custom Cross-Border Quote
+                    </a>
                 </div>
             </div>
         </section>
@@ -1504,16 +1761,16 @@
                             <p>ID Number: Available on Request</p>
                         </div>
                         
-                        <!-- <div class="registration-card">
+                        <div class="registration-card">
                             <h3>Registered Addresses</h3>
-                            <div class="info-item">
+                            <!-- <div class="info-item">
                                 <strong>Postal Address</strong>
                                 <span>90 ALBERT STREET, ROSETTEVILLE, JOHANNESBURG, GAUTENG 2190</span>
-                            </div>
+                            </div> -->
                             <div class="info-item">
                                 <strong>Registered Office</strong>
                                 <span>90 ALBERT STREET, ROSETTEVILLE, JOHANNESBURG, GAUTENG 2190</span>
-                            </div> -->
+                            </div>
                             <div class="info-item">
                                 <strong>Physical Address</strong>
                                 <span>1 CRYSTAL PLACE STANFORD, GAUTENG </span>
@@ -1852,6 +2109,30 @@
         window.addEventListener('DOMContentLoaded', () => {
             switchPage('home');
         });
-    </script>
+   
+    // Fix for mobile overflow issue
+    window.addEventListener('load', function() {
+        // Force container to take full width on mobile
+        if (window.innerWidth <= 380) {
+            document.querySelectorAll('.container').forEach(container => {
+                container.style.padding = '0 5px';
+                container.style.width = '100%';
+                container.style.maxWidth = '100%';
+            });
+            
+            // Force body to be exactly viewport width
+            document.body.style.width = '100vw';
+            document.body.style.overflowX = 'hidden';
+        }
+        
+        // Listen for resize events
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 380) {
+                document.body.style.width = '100vw';
+                document.body.style.overflowX = 'hidden';
+            }
+        });
+    });
+</script>
 </body>
 </html>
