@@ -2,31 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /private/
 Disallow: /admin/
-Disallow: /cgi-bin/
 
-# Crawl-delay to prevent server overload
-Crawl-delay: 10
-
-# Sitemap location
 Sitemap: https://promeditransportservice.services/sitemap.xml
 
-# Allow search engines to index JavaScript and CSS
-Allow: /*.js$
-Allow: /*.css$
-
-# Block specific file types
-Disallow: /*.json$
-Disallow: /*.xml$  # except sitemap.xml which we explicitly allow
-
-# Additional instructions for major search engines
 User-agent: Googlebot
 Allow: /
-Disallow: /private/
 
 User-agent: Bingbot
 Allow: /
-Disallow: /private/
-
-User-agent: Slurp
-Allow: /
-Disallow: /private/
